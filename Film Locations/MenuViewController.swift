@@ -11,10 +11,10 @@ import UIKit
 class MenuViewController: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var toggleButton: UIButton!
     
     var firstViewController: UIViewController?
     var secondViewController: UIViewController?
+    private var toggleButton = UIButton()
     
     private var activeViewController: UIViewController? {
         didSet{
@@ -36,11 +36,11 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupToggleButton()
         activeViewController = firstViewController
-        toggleButton.setImage(UIImage(named: "listToggleIcon"), for: UIControlState.normal)
     }
     
-    func removeInactiveViewController(inactiveViewController: UIViewController?) {
+    private func removeInactiveViewController(inactiveViewController: UIViewController?) {
         if let inactiveVC = inactiveViewController {
             // called before removing child view controller's view form hierarchy
             inactiveVC.willMove(toParentViewController: nil)
@@ -52,7 +52,7 @@ class MenuViewController: UIViewController {
         }
     }
     
-    func updateActiveViewController() {
+    private func updateActiveViewController() {
         if let activeVC = activeViewController {
             // called before adding child view controller's view as subview
             addChildViewController(activeVC)
@@ -62,23 +62,32 @@ class MenuViewController: UIViewController {
             
             // call before adding child view contoller's view as subview
             activeVC.didMove(toParentViewController: self)
+            activeViewController?.view.addSubview(toggleButton)
         }
+    }
+    
+    private func setupToggleButton() {
+        toggleButton.frame = CGRect(x: 13, y: 18, width: 30, height: 30)
+        updateToggleButtonIcon(with: InternalConfiguration.listToggleIcon)
+        toggleButton.addTarget(self, action: #selector(toggleActiveView(_:)), for: UIControlEvents.touchUpInside)
+        
+        // add the toggle to the view controller
+        activeViewController?.view.addSubview(toggleButton)
     }
     
     private func updateToggleButtonIcon(with image: String) {
         toggleButtonImage = UIImage(named: image)!
     }
     
-    @IBAction func toggleActiveView(_ sender: UIButton) {
+    func toggleActiveView(_ sender: UIButton) {
         if activeViewController == firstViewController {
             activeViewController = secondViewController
-            updateToggleButtonIcon(with: "mapToggleIcon")
+            updateToggleButtonIcon(with: InternalConfiguration.mapToggleIcon)
         }
         else {
             activeViewController = firstViewController
-            updateToggleButtonIcon(with: "listToggleIcon")
+            updateToggleButtonIcon(with: InternalConfiguration.listToggleIcon)
         }
     }
-    
-    
+
 }

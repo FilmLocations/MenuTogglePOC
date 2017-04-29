@@ -47,7 +47,8 @@ class TMDSClient {
                     if data != nil {
                         
                         let json = JSON(data: data!)
-                        success(json)
+                        let firstReleaseMovieJSON = self.getFirstReleaseMovieInfo(json: json)
+                        success(firstReleaseMovieJSON)
                     }
                 }
             })
@@ -66,5 +67,36 @@ class TMDSClient {
         }
         
         return apiStringURL
+    }
+    
+    private func getFirstReleaseMovieInfo(json: JSON) -> JSON {
+        // the json contains all the release date around the world, but we want to have the very first one
+        
+        let results = json["results"]
+        var firstReleaseMovieInfoJSON = results.arrayValue[0]
+        let firstReleaseDate = getFirstReleaseDate(from: results)
+        
+        for result in results.arrayValue {
+            if result["release_date"].stringValue == firstReleaseDate {
+                firstReleaseMovieInfoJSON = result
+            }
+        }
+        return firstReleaseMovieInfoJSON
+    }
+    
+    private func getFirstReleaseDate(from results: JSON) -> String {
+
+        var firstRelease = Date()
+        
+        for result in results.arrayValue {
+            let releaseDateString = result["release_date"].stringValue
+            // to support date comparison, the string date value must be converted into a DATE value
+            if let releaseDate = DateFormatter().date(from: releaseDateString) {
+                if firstRelease.compare(releaseDate) != ComparisonResult.orderedAscending {
+                    firstRelease = releaseDate
+                }
+            }
+        }
+        return DateFormatter().string(from: firstRelease)
     }
 }

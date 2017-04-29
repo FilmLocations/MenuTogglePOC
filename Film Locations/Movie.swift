@@ -98,14 +98,19 @@ class Movie {
         return tmdbJSON?["original_language"].stringValue
     }
     
-    var releaseDate: Date? {
+    var releaseDate: String? {
 
         guard let releaseStringDate = tmdbJSON?["release_date"].stringValue else {
             return nil
         }
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-DD"
-        return formatter.date(from: releaseStringDate)
+        let date = formatter.date(from: releaseStringDate)
+        formatter.dateFormat = "MMM dd, YYYY"
+        guard let unwrappedDate = date else {
+            return nil
+        }
+        return formatter.string(from: unwrappedDate)
     }
     
     func mappingSFOpenData(json: JSON) {

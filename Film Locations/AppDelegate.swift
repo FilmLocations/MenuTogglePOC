@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let vc1 = UIViewController()
+        let vc1 = ViewController()
         let vc2 = UIViewController()
         
         vc1.view.backgroundColor = UIColor.red

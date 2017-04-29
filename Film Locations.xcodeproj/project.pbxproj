@@ -18,6 +18,7 @@
 		D31D92271EB048A8001A3681 /* SFDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31D92261EB048A8001A3681 /* SFDataClient.swift */; };
 		D31F4FE41EB25CF9003CC557 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31F4FE21EB25CF9003CC557 /* MenuViewController.swift */; };
 		D31F4FE51EB25CF9003CC557 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D31F4FE31EB25CF9003CC557 /* MenuViewController.xib */; };
+		D31F4FE71EB2B41F003CC557 /* InternalConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31F4FE61EB2B41F003CC557 /* InternalConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D31D92261EB048A8001A3681 /* SFDataClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFDataClient.swift; sourceTree = "<group>"; };
 		D31F4FE21EB25CF9003CC557 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		D31F4FE31EB25CF9003CC557 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		D31F4FE61EB2B41F003CC557 /* InternalConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				3A224FA31EAD611700091BB3 /* Assets.xcassets */,
 				3A224FA51EAD611700091BB3 /* LaunchScreen.storyboard */,
 				3A224FA81EAD611700091BB3 /* Info.plist */,
+				D31F4FE61EB2B41F003CC557 /* InternalConfiguration.swift */,
 			);
 			path = "Film Locations";
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				D31D92271EB048A8001A3681 /* SFDataClient.swift in Sources */,
 				3A224F9F1EAD611700091BB3 /* ViewController.swift in Sources */,
 				D31D92251EB03650001A3681 /* Movie.swift in Sources */,
+				D31F4FE71EB2B41F003CC557 /* InternalConfiguration.swift in Sources */,
 				3A224F9D1EAD611700091BB3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

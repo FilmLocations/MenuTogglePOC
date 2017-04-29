@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="Film_Locations" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="mzD-ML-yJe" id="nuJ-cn-noF"/>
-                <outlet property="toggleButton" destination="aNk-do-dL9" id="UbG-9T-V1t"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,25 +21,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mzD-ML-yJe" userLabel="ContentView">
-                    <rect key="frame" x="0.0" y="58" width="375" height="609"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNk-do-dL9">
-                    <rect key="frame" x="16" y="20" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="List" image="listToggleIcon"/>
-                    <connections>
-                        <action selector="toggleActiveView:" destination="-1" eventType="touchUpInside" id="UWq-JA-7qY"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="33.5" y="70.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="listToggleIcon" width="120" height="120"/>
-    </resources>
 </document>
